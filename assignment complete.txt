@@ -1,0 +1,88 @@
+Assignment Number 1) 
+
+def S(s, x):
+    n = len(s)
+    Short_len = float('inf')
+    short_sub = []
+
+    for i in range(n - x + 1):
+        for j in range(i + x, n):
+            if s[i] == s[j]:
+                substring_len = j - i + 1
+                if substring_len < Short_len:
+                    Short_len = substring_len
+                    short_sub = [s[i:j+1]]
+                elif substring_len == Short_len:
+                    short_sub.append(s[i:j+1])
+
+    if short_sub:
+        return short_sub
+    else:
+        return ['not-found']
+# Ex:
+
+s = "abccdbacca"
+x = 3
+
+r = S(s, x)
+for substring in r:
+    print(substring)
+
+
+
+Assignment 2)
+
+
+
+
+def String(s):
+    new_string = list(s)
+    n = len(s)
+    for i in range(n):
+        ascii_val = ord(s[i]) 
+        # here ord() it converts the given string length one, returns an integer representing the Unicode point of the character. 
+        
+        if ascii_val % 2 == 0: 
+            if i + 1 < n:  # there is a next character
+                new_ascii_val = (ascii_val % 7)
+                new_char = chr((ascii_val + new_ascii_val) % 128)  #it is a valid ASCII character
+                new_string[i+1] = new_char
+      
+        else:  
+            if i - 1 >= 0: 
+                new_ascii_val = (ascii_val % 5)
+                new_char = chr((ascii_val - new_ascii_val) % 128)  # Ensure it is a valid ASCII character
+                new_string[i-1] = new_char
+    
+    return ''.join(new_string)
+
+
+# Example usage
+s = "sHQen}"
+new_s = String(s)
+print(new_s)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
